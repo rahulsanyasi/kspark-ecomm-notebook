@@ -1,16 +1,32 @@
 from fastapi import FastAPI
-from notebook import Notebook
+# from notebook import Notebook
+from pydantic import BaseModel
 
-print(f"Loading Notebook api")
+# print(f"Loading Notebook api")
 
 app = FastAPI()
-notebooks_list = []
 
+class Notebook(BaseModel):
+    id: int
+    notebook_type: str
+    size: str
+    pages: str
+    type: str
+    price: float
+    
+notebooks_list = [{
+    "id": 105,
+    "notebook_type": "Exercise Book",
+    "size": "20 x 26",
+    "pages": "180",
+    "type": "6 Subjects Note Book",
+    "price": 180.00
+}]
 
 @app.get("/")
 async def home():
     print(f"Inside root function")
-    return {"message": "Welcome to Pragti stationery shop!!"}
+    return {"message": "Welcome to Pragiti stationery shop!!"}
 
 @app.get("/notebooks")
 async def get_notebooks():

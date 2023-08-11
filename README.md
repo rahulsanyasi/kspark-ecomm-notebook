@@ -15,5 +15,12 @@ python -m venv .venv
 pip install -r requirements.txt
 
 # to run uvicorn server
-
 uvicorn notebook-app:app --reload
+
+# Install pytest:
+python -m pip install pytest
+
+# Execute the tests:
+python -m pytest
+
+pip install requests
