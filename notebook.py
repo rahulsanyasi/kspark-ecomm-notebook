@@ -7,3 +7,8 @@ class Notebook(BaseModel):
     pages: str
     type: str
     price: float
+    
+    def __init__(self, id):
+        self.id = id
+    
+    
